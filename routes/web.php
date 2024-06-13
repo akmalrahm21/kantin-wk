@@ -41,7 +41,7 @@ Route::delete('/transactions', [TransactionController::class, 'destroyAll'])->na
 // Routes for users
 Route::get('/users', [UserController::class, 'index'])->name('users.index')->middleware('auth');
 
-// routes/web.php
+ // routes/web.php
 
 use App\Http\Controllers\AuthController;
 
