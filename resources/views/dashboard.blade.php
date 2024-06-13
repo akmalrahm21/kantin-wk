@@ -53,7 +53,7 @@
 
         .banner {
             position: relative;
-            width: 103%;
+            width: 100%;
             height: 500px;
             background: url('/images/banner.png') no-repeat center center/cover;
             display: flex;
@@ -135,16 +135,33 @@
                 document.getElementById('logout-form').submit();
             }
         }
+
+        // Smooth scroll function
+        document.addEventListener('DOMContentLoaded', function() {
+            const aboutLink = document.querySelector('.navbar-menu a[href="#tentang"]');
+            if (aboutLink) {
+                aboutLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const target = document.querySelector('#tentang');
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - document.querySelector('.navbar').offsetHeight,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            }
+        });
     </script>
 </head>
 <body>
     <div class="navbar">
         <div class="navbar-brand">
-            <a href="#">Kantin Wikrama</a>
+            <a href="">Kantin HEBAT</a>
         </div>
         <div class="navbar-menu">
             <a href="login">Login</a>
-            <a href="#">Tentang</a>
+            <a href="#tentang">Tentang</a>
         </div>
     </div>
     <div class="banner">
@@ -152,9 +169,9 @@
         <a href="login" class="banner-button">MASUK</a>
     </div>
     <div class="container">
-        <div class="description">
+        <div id="tentang" class="description">
             <img src="/images/kantin.jpeg" alt="Selamat Datang di Kantin Wikrama">
-            <p>Kantin HEBAT adalah tempat favorit bagi siswa dan staf untuk menikmati makanan dan minuman yang lezat. Dengan berbagai pilihan menu yang tersedia setiap hari, kantin ini memastikan semua orang dapat menemukan sesuatu yang mereka sukai. Dari makanan ringan hingga hidangan utama, semuanya disiapkan dengan bahan-bahan segar dan berkualitas.</p>
+            <p>Kantin HEBAT <b>(Hemat,Enak,Bergizi,Aman,Terjangkau)</b> adalah tempat favorit bagi siswa dan staf untuk menikmati makanan dan minuman yang lezat. Dengan berbagai pilihan menu yang tersedia setiap hari, kantin ini memastikan semua orang dapat menemukan sesuatu yang mereka sukai. Dari makanan ringan hingga hidangan utama, semuanya disiapkan dengan bahan-bahan segar dan berkualitas.</p>
         </div>
     </div>
     <div class="footer">

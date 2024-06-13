@@ -16,7 +16,7 @@
         .navbar {
             position: fixed;
             top: 0;
-            width: 99%;
+            width: 98%;
             background: #0DC1DD;
             color: white;
             padding: 1em;
@@ -36,6 +36,35 @@
 
         .navbar a:hover {
             color: #adb5bd;
+        }
+
+        .search-form {
+            display: flex;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        .search-form input[type="text"] {
+            padding: 5px;
+            font-size: 1em;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+
+        .search-form button {
+            padding: 5px 10px;
+            font-size: 1em;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-form button:hover {
+            background-color: #0056b3;
         }
 
         .container {
@@ -172,10 +201,15 @@
 <body>
     <div class="navbar">
         <div class="navbar-brand">
-            <a href="#">Kantin Hebat</a>
+            <a href="">Kantin HEBAT</a>
+        </div>
+        <div class="search-form">
+            <form action="{{ route('search') }}" method="GET">
+                <input type="text" name="query" placeholder="Cari produk...">
+                <button type="submit">Cari</button>
+            </form>
         </div>
         <div class="navbar-menu">
-            <a href="dashboard">Home</a>
             <a href="#" onclick="confirmLogout(event)">Logout</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf

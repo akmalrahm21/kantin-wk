@@ -142,4 +142,12 @@ public function show(Kantinwk $kantinwk)
 
         return redirect()->route('pembeli.index')->with('success', 'Pembelian berhasil dilakukan!');
     }
+    public function search(Request $request)
+{
+    $query = $request->input('query');
+    $kantinwks = Kantinwk::where('nama_barang', 'LIKE', "%{$query}%")->get();
+
+    return view('pembeli.index', compact('kantinwks'));
+}
+
 }

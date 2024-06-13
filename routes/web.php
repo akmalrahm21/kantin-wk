@@ -34,8 +34,8 @@ Route::middleware('auth')->group(function () {
 
     // Routes for transactions
     Route::get('/transactions', [TransactionController::class, 'index'])->name('transactions.index');
-    Route::delete('/transactions/{id}', [TransactionController::class, 'destroy'])->name('transactions.destroy');
-    Route::delete('/transactions', [TransactionController::class, 'destroyAll'])->name('transactions.destroyAll');
+Route::delete('/transactions/{id}', [TransactionController::class, 'destroy'])->name('transactions.destroy');
+Route::delete('/transactions', [TransactionController::class, 'destroyAll'])->name('transactions.destroyAll');
 });
 
 // Routes for users
@@ -50,6 +50,8 @@ Route::post('/register', [AuthController::class, 'register']);
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
+Route::get('/search', [KantinwkController::class, 'search'])->name('search');
+
 
 
 
